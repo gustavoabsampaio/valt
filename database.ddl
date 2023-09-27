@@ -1,4 +1,3 @@
--- estilos serão mapeados por bits, cada bit um estilo
 CREATE TABLE usuario (
     id_usuario  SERIAL      PRIMARY KEY
     cpf         INTEGER     UNIQUE NOT NULL,

@@ -1,22 +1,22 @@
 -- estilos serão mapeados por bits, cada bit um estilo
 CREATE TABLE usuario (
-    cpf         INTEGER     PRIMARY KEY,
+    id_usuario  SERIAL      PRIMARY KEY
+    cpf         INTEGER     UNIQUE NOT NULL,
     email       VARCHAR(30) UNIQUE NOT NULL,
-    nascimento  DATE        NOT NULL,
-    estilos     BIT(10)     NOT NULL 
+    nascimento  DATE        NOT NULL
 );
 
 CREATE TABLE loja (
-    cpfcnpj     INTEGER     PRIMARY KEY,
+    id_loja     SERIAL      PRIMARY KEY,
+    cpfcnpj     INTEGER     UNIQUE,
     nome        VARCHAR(25) NOT NULL,
     email       VARCHAR(30) UNIQUE NOT NULL,
     telefone    INTEGER,
-    logo        BYTEA,
-    estilos     BIT(10)     NOT NULL
+    logo        BYTEA
 );
 
 CREATE TABLE peca (
-    id          INTEGER     PRIMARY KEY,
+    id_peca     SERIAL      PRIMARY KEY,
     id_loja     INTEGER     NOT NULL,
     nome        VARCHAR(30) NOT NULL,
     preco       FLOAT       NOT NULL,
@@ -32,11 +32,11 @@ CREATE TABLE peca (
             REFERENCES loja(cpfcnpj),
     CONSTRAINT fk_peca_promocao
         FOREIGN KEY(promocao)
-            REFERENCES promocao(id)
+            REFERENCES promocao(id_promocao)
 );
 
 CREATE TABLE promocao (
-    id                  INTEGER     PRIMARY KEY,
+    id_promocao         SERIAL      PRIMARY KEY,
     id_loja             INTEGER     NOT NULL,
     id_peca             INTEGER     NOT NULL,
     data_inicio         DATETIME    NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE promocao (
             REFERENCES loja(cpfcnpj),
     CONSTRAINT fk_promocao_peca
         FOREIGN KEY(id_peca)
-            REFERENCES peca(id)
+            REFERENCES peca(id_peca)
 );
 
 CREATE TABLE segue (
@@ -61,7 +61,7 @@ CREATE TABLE segue (
             REFERENCES loja(cpfcnpj),
     CONSTRAINT fk_segue_usuario
         FOREIGN KEY(id_usuario)
-            REFERENCES usuario(cpf)
+            REFERENCES usuario(id_usuario)
 );
 
 CREATE TABLE favorita (
@@ -72,8 +72,39 @@ CREATE TABLE favorita (
     PRIMARY KEY (id_usuario, id_peca),
     CONSTRAINT fk_favorita_peca
         FOREIGN KEY(id_peca)
-            REFERENCES peca(id),
+            REFERENCES peca(id_peac),
     CONSTRAINT fk_favorita_usuario
         FOREIGN KEY(id_usuario)
-            REFERENCES usuario(cpf)
+            REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE estilo (
+    id_estilo          SERIAL      PRIMARY KEY,
+    nome        VARCHAR(20) NOT NULL,
+    descricao   TEXT        NOT NULL
+);
+
+CREATE TABLE procura (
+    id_usuario  INTEGER     NOT NULL,
+    id_estilo   INTEGER     NOT NULL,
+    data_ini    DATE        NOT NULL,
+    data_fim    DATE,
+    CONSTRAINT fk_procura_usuario
+        FOREIGN KEY(id_usuario)
+            REFERENCES usuario(id_usuario),
+    CONSTRAINT fk_procura_estilo
+        FOREIGN KEY(id_estilo)
+            REFERENCES estilo(id_estilo)
+);
+
+CREATE TABLE estilo_peca (
+    id_peca         INTEGER     NOT NULL,
+    id_estilo       INTEGER     NOT NULL,
+    caracteristica  TEXT
+    CONSTRAINT fk_estilo_peca_peca
+        FOREIGN KEY(id_peca)
+            REFERENCES peca(id_peca),
+    CONSTRAINT fk_estilo_peca_estilo
+        FOREIGN KEY(id_estilo)
+            REFERENCES estilo(id_estilo)
 );

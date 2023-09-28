@@ -1,16 +1,16 @@
 CREATE TABLE usuario (
     id_usuario  SERIAL      PRIMARY KEY
-    cpf         INTEGER     UNIQUE NOT NULL,
+    cpf         VARCHAR(11)     UNIQUE NOT NULL,
     email       VARCHAR(30) UNIQUE NOT NULL,
     nascimento  DATE        NOT NULL
 );
 
 CREATE TABLE loja (
     id_loja     SERIAL      PRIMARY KEY,
-    cpfcnpj     INTEGER     UNIQUE,
+    cpfcnpj     VARCHAR(14)     UNIQUE,
     nome        VARCHAR(25) NOT NULL,
     email       VARCHAR(30) UNIQUE NOT NULL,
-    telefone    INTEGER,
+    telefone    VARCHAR(15),
     logo        BYTEA
 );
 

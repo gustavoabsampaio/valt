@@ -71,7 +71,7 @@ CREATE TABLE favorita (
     PRIMARY KEY (id_usuario, id_peca),
     CONSTRAINT fk_favorita_peca
         FOREIGN KEY(id_peca)
-            REFERENCES peca(id_peac),
+            REFERENCES peca(id_peca),
     CONSTRAINT fk_favorita_usuario
         FOREIGN KEY(id_usuario)
             REFERENCES usuario(id_usuario)

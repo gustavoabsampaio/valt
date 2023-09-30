@@ -30,6 +30,7 @@ Instale as dependências necessárias do projeto listadas no arquivo requirement
 Crie um arquivo .env no diretório raiz do projeto para armazenar as configurações sensíveis, como detalhes do banco de dados e SECRET_KEY.
 
 EXEMPLO:
+
         SECRET_KEY=sua_chave_secreta_de_desenvolvimento
         DEBUG=True 
         DB_NAME=nome_do_seu_banco_de_dados

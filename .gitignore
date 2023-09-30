@@ -1,7 +1,36 @@
-*.pyc
+# Arquivos e diretórios do sistema operacional
+*.DS_Store
+Thumbs.db
 
+# Ambiente Virtual
+venv/
+myenv/
+*.pyc
 __pycache__/
 
-venv
+# Banco de dados SQLite (se estiver usando)
+*.sqlite3
+db.sqlite3
 
+# Arquivos de mídia e estáticos gerados
+media/
+static/
+staticfiles/
+
+# Arquivos de configuração sensíveis
 .env
+secrets.json
+
+# Arquivos do IDE (PyCharm, VSCode, etc)
+.idea/
+.vscode/
+
+# Cache e arquivos temporários
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*~
+
+# Diretórios de pacotes de terceiros
+node_modules/

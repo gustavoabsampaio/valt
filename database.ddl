@@ -83,8 +83,8 @@ CREATE TABLE segue (
 CREATE TABLE favorita (
     id_usuario      INTEGER,
     id_peca         INTEGER,
-    data_adicao     DATE        NOT NULL,
-    preco_adicao    FLOAT       NOT NULL
+    data_adicao     DATE        	NOT NULL,
+    preco_adicao    DECIMAL(10,2)       NOT NULL,
     PRIMARY KEY (id_usuario, id_peca),
     CONSTRAINT fk_favorita_peca
         FOREIGN KEY(id_peca)

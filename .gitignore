@@ -24,6 +24,7 @@ secrets.json
 # Arquivos do IDE (PyCharm, VSCode, etc)
 .idea/
 .vscode/
+*.swp
 
 # Cache e arquivos temporários
 *.pyc

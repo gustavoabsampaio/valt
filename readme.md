@@ -56,7 +56,7 @@ Após configurar as variáveis de ambiente, execute as migrações para configur
 
 Finalmente, para rodar o servidor de desenvolvimento do Django, execute o comando abaixo:
 
-~ python manage.py runserver
+    python manage.py runserver
 
 
 

@@ -19,6 +19,7 @@ staticfiles/
 
 # Arquivos de configuração sensíveis
 .env
+*.yaml
 secrets.json
 
 # Arquivos do IDE (PyCharm, VSCode, etc)

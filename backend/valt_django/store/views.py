@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Loja, Estilo, Peca, Promocao, Material, Favorita, Procura, EstiloPeca, Segue
+from .models import Loja, Estilo, Peca, Promocao, Material, Favorita, Procura, EstiloPeca, Segue 
 from .serializers import (
     LojaSerializer, EstiloSerializer, PecaSerializer, PromocaoSerializer, 
     MaterialSerializer, FavoritaSerializer, ProcuraSerializer, EstiloPecaSerializer, SegueSerializer

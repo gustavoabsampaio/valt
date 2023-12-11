@@ -26,7 +26,7 @@ class PromocaoSerializer(serializers.ModelSerializer):
 
 
 class PecaSerializer(serializers.ModelSerializer):
-    promocoes = PromocaoSerializer(many=True, read_only=True, source='promocoes')
+    promocoes = PromocaoSerializer(many=True, read_only=True)
     
     class Meta:
         model = Peca

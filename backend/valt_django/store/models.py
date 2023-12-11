@@ -17,6 +17,7 @@ class Peca(models.Model):
     id_loja = models.ForeignKey(Loja, on_delete=models.CASCADE)
     nome = models.CharField(max_length=50)
     preco = models.DecimalField(max_digits=12, decimal_places=2)
+    imagem = models.URLField(max_length=255, null=True, blank=True)
     descricao = models.TextField()
     disponivel = models.BooleanField(default=True)
     promocao = models.ForeignKey('Promocao', on_delete=models.SET_NULL, null=True, blank=True)
